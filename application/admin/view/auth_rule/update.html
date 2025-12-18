@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+  <head>
+    {include file="public/head" /}
+    <script type="text/javascript" src="__STATIC__/admin/js/jquery-3.6.4.min.js"></script>
+  </head>
+  <body>
+    <style>
+      .layui-input-inline {
+        width: 100%;
+      }
+    </style>
+    <div class="layui-fluid">
+      <div class="layui-row">
+        <form class="layui-form" id="editForm" onsubmit="return false">
+          <div class="layui-form-item">
+		    <label for="username" class="layui-form-label">
+              <span class="x-red">*</span>上级权限
+            </label>
+		    <div class="layui-input-block">
+		      <select name="pid" lay-verify="required">
+		        <option value="0">顶级权限</option>
+		        {volist name="rule" id="rule"}
+		        <option value="{$rule.id}" {$res.pid==$rule.id?'selected':'';}><?php
+		        	if ($rule['level']!=0) {
+		        		echo '|';
+		        	}
+		        	echo str_repeat('---------',$rule['level']);
+		        ?>{$rule.title}</option>
+		        {/volist}
+		      </select>
+		    </div>
+		  </div>
+          <div class="layui-form-item">
+            <label for="username" class="layui-form-label">
+              <span class="x-red">*</span>权限名称
+            </label>
+            <div class="layui-input-block">
+              <input type="text" name="title" required  lay-verify="required" placeholder="请输入权限名称" autocomplete="off" class="layui-input" value="{$res.title}">
+            </div>
+          </div>
+          <div class="layui-form-item">
+            <label for="des" class="layui-form-label">
+              控/方
+            </label>
+            <div class="layui-input-block">
+              <input type="text" id="des" name="name" placeholder="请输入控制器/方法路径" lay-verify="des" autocomplete="off"
+                class="layui-input" value="{$res.name}">
+            </div>
+          </div>
+          <div class="layui-form-item">
+            <label for="L_repass" class="layui-form-label">
+            </label>
+            <button class="layui-btn" lay-filter="edit" lay-submit="edit">
+              提交
+            </button>
+            <!-- <input type="submit" class="layui-btn" value="提交"> -->
+            <input type="reset" class="layui-btn layui-bg-red" value="重置">
+          </div>
+           <input id='id' type="hidden" name="id" value={$res.id}></input>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      layui.use(['form', 'layer'],
+        function() {
+          $ = layui.jquery;
+          var form = layui.form,
+            layer = layui.layer;
+
+          //监听提交
+          form.on('submit(edit)',
+            function(data) {
+              console.log(data);
+              //发异步，把数据提交给php
+              str = $('#editForm').serialize();  //获取序列化的数据
+              // alert(str);
+              $.post("{:url('update',array('id'=>$res.id))}",{str:str},function(data){
+                  if (data==1) {
+                      layer.alert("修改成功", {
+                          icon: 6
+                      },
+                      function() {
+                          // 获得frame索引
+                          var index = parent.layer.getFrameIndex(window.name);
+                          //关闭当前frame
+                          parent.layer.close(index);
+                          // 刷新父级页面
+                          parent.location.reload();
+                      });
+
+                  }else {
+                      // layer.alert(data.error);
+                  	layer.alert("修改失败，不能把当前的权限级别修改为当前的分类以及该分类的子分类下面！");
+                  }
+              })
+            });
+
+        });
+    </script>
+  </body>
+</html>

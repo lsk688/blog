@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+  <head>
+    {include file="public/head" /}
+    <!-- 注意js引入顺序 -->
+    <script src="__STATIC__/admin/baidu/ueditor.config.js"></script>
+    <script src="__STATIC__/admin/baidu/ueditor.all.min.js"></script>
+    <!-- <script src="__STATIC__/admin/ueditor1.3.6/ueditor.all.js"></script> -->
+    <script src="__STATIC__/admin/baidu/lang/zh-cn/zh-cn.js"></script>
+    <script type="text/javascript" src="__STATIC__/admin/js/jquery-3.6.4.min.js"></script>
+  </head>
+  <body>
+    <style>
+      .layui-input-inline {
+        width: 100%;
+      }
+    </style>
+    <div class="layui-fluid">
+      <div class="layui-row">
+        <form class="layui-form" id="addForm" onsubmit="return false">
+          <div class="layui-form-item">
+            <label for="username" class="layui-form-label">
+              <span class="x-red">*</span>所属栏目
+            </label>
+            <div class="layui-input-block">
+              <select name="columid" lay-verify="">
+                {volist name="col" id="col"}
+                 <!-- str_repeat()重复的意思 -->
+                <option value="{$col.id}">|---<?php echo str_repeat('-',$col['level']); ?>{$col.name}</option>
+                {/volist}
+              </select>     
+            </div>
+          </div>
+          <div class="layui-form-item">
+            <label for="username" class="layui-form-label">
+              <span class="x-red">*</span>文章标题
+            </label>
+            <div class="layui-input-block">
+              <input type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+              <!-- <input type="text" id="username" name="username" required="" lay-verify="required"
+                autocomplete="off" class="layui-input"> -->
+            </div>
+            <!-- <div class="layui-form-mid layui-word-aux">
+              将会成为您唯一的登入名
+            </div> -->
+          </div>
+          <div class="layui-form-item">
+            <label for="des" class="layui-form-label">
+              文章描述
+            </label>
+            <div class="layui-input-block">
+              <input type="text" id="des" name="des" placeholder="请输入文章描述" lay-verify="des" autocomplete="off"
+                class="layui-input">
+            </div>
+          </div>
+          <div class="layui-form-item">
+            <label for="keywords" class="layui-form-label">
+              文章关键字
+            </label>
+            <div class="layui-input-block">
+              <input type="text" id="keywords" name="keywords" placeholder="请输入文章关键字" autocomplete="off" class="layui-input">
+            </div>
+          </div>
+          <div class="layui-form-item">
+            <label class="layui-form-label">文章内容</label>
+            <div class="layui-input-block">
+              <script id="editor" name="content" type="text/plain" style="width: 100%;height: 500px;"></script>
+            </div>
+          </div>
+          <div class="layui-form-item">
+              <label for="L_pass" class="layui-form-label">
+                  图片上传</label>
+              <div class="layui-input-inline" style="position: relative;width: 78%;">
+                  <button type="button" class="layui-btn" id="test1">
+                    <i class="layui-icon">&#xe67c;</i>上传图片
+                  </button>
+                  <input type="hidden" name="img" id="editimg" value="">
+                  <div class="article_span_img" style="">
+                      <span style="position: absolute;top: 6px;left: 90px;font-size: 12px;">
+                          
+                      </span>
+                  </div>
+                  <div id="result_img" style="margin-top: 8px;position: relative;width: 150px;">
+                      
+                  </div>
+              </div>
+          </div>
+
+          <div class="layui-form-item">
+              <label for="L_pass" class="layui-form-label">
+                  视频上传</label>
+              <div class="layui-input-inline" style="position: relative;width: 78%;">
+                  <button type="button" class="layui-btn" id="video">
+                    <i class="layui-icon">&#xe67c;</i>上传视频
+                  </button>
+                  <input type="hidden" name="video" id="editvideo" value="">
+                  <div class="article_span_video" style="">
+                      <span style="position: absolute;top: 6px;left: 90px;font-size: 12px;">
+                          
+                      </span>
+                  </div>
+                  <div id="result_video" style="margin-top: 8px;position: relative;width: 150px;">
+                      
+                  </div>
+              </div>
+          </div>
+
+          <div class="layui-form-item">
+            <label for="time" class="layui-form-label">
+              发布时间
+            </label>
+            <div class="layui-input-block">
+              <input type="text" id="time" name="time" placeholder="请输入时间" required="" lay-verify="required"
+                autocomplete="off" class="layui-input" value="{$time}">
+            </div>
+          </div>
+          <div class="layui-form-item">
+            <label for="L_repass" class="layui-form-label">
+            </label>
+            <button class="layui-btn" lay-filter="add" lay-submit="add">
+              添加
+            </button>
+            <div class="layui-btn layui-bg-red" onclick="quxiao()">
+              取消
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- 初始化编辑器 -->
+    <script type="text/javascript">
+      // var ue = UE.getEditor('editor');
+      var ue = UE.getEditor('editor', {
+          autoHeight: 500
+      });
+    </script>
+
+    <script>
+      //图片上传
+      layui.use('upload', function(){
+        var upload = layui.upload;
+        //创建一个上传组件
+       upload.render({
+          elem: '#test1'
+          ,url: '{:url('ajax_upload')}'
+          ,done: function(data){ //上传后的回调
+              if (data['file']!=false && data['file'] != "") {
+                  var result_img = '';
+                  var editimg = '';
+                  result_img += '<img src="' + '__STATIC__/uploads/article/' + data['site'] + '" width="150" height="110">' + '<button type="button" onclick="delimg()" style="position: absolute;top: 0px;right: 0px;"><i class="layui-icon">&#xe640;</i></button>';
+                  editimg += data['site'];
+                  $('#result_img').html(result_img);
+                  $('#editimg').val(editimg);
+                  $('.article_span_img span').html(data['site']);
+              }else {
+                  layer.alert(data.site);
+                  // layer.msg(data.site);
+              }
+          }
+          // ,before: function(obj){ //obj参数包含的信息，跟 choose回调完全一致，可参见上文。
+          //     layer.load(); //上传loading
+          // }
+          ,accept: 'images' //允许上传的文件类型
+          // ,auto: false
+          // ,bindAction: '#sublit'
+          // ,size: 300 //最大允许上传的文件大小
+          })
+      });
+
+      function delimg() {
+          // alert("111");
+          // $('#result_img').html("");
+          // $('#editimg').val("");
+          // $('.article_span_img span').html("");
+          img = $('#editimg').val();
+          // alert(img);
+          $.post("{:url('ajax_upload_del')}",{img:img},function(data){
+              if (data==2) {
+                  // $('#result').find("img").remove();
+                  $('#result_img').html("");
+                  $('#editimg').val("");
+                  $('.article_span_img span').html("");
+                  layer.msg('图片删除成功！',{icon:1,time:1000});
+              }else {
+                  // layer.msg('图片删除失败！',{icon:6,time:1000});
+                  layer.msg('图片删除失败！',{icon:6,time:1000});
+              }
+          })
+      }
+
+      //视频上传
+      layui.use('upload', function(){
+        var upload = layui.upload;
+        //创建一个上传组件
+       upload.render({
+          elem: '#video'
+          ,url: '{:url('ajax_upload_video')}'
+          ,done: function(data){ //上传后的回调
+              if (data['file']!=false && data['file'] != "") {
+                  var result_video = '';
+                  var editvideo = '';
+                  // result_video += '<img src="' + '__STATIC__/uploads_video/lunbo/' + data['site'] + '" width="150" height="110">' + '<button type="button" onclick="delimg()" style="position: absolute;top: 0px;right: 0px;"><i class="layui-icon">&#xe640;</i></button>';
+                  // editvideo += data['site'];
+
+                  result_video += '<video class="video" autoplay="" loop="" muted="" width="120" height="70"><source src="' + '__STATIC__/uploads_video/article/' + data['site'] + '" type="video/mp4"></video>' + '<button type="button" onclick="delvideo()" style="position: absolute;top: 0px;right: 0px;"><i class="layui-icon">&#xe640;</i></button>';
+                  editvideo += data['site'];
+                  $('#result_video').html(result_video);
+                  $('#editvideo').val(editvideo);
+                  $('.article_span_video span').html(data['site']);
+              }else {
+                  layer.alert(data.site);
+                  // layer.msg(data.site);
+              }
+          }
+          ,accept: 'video' //允许上传的文件类型
+          // ,size: 300 //最大允许上传的文件大小
+          })
+      });
+
+      //删除视频
+      function delvideo() {
+        // alert("111");
+        // $('#result_img').html("");
+        // $('#editimg').val("");
+        // $('.article_span_img span').html("");
+        video = $('#editvideo').val();
+        // alert(img);
+        $.post("{:url('ajax_upload_video_del')}",{video:video},function(data){
+            if (data==2) {
+                // $('#result').find("img").remove();
+                $('#result_video').html("");
+                $('#editvideo').val("");
+                $('.article_span_video span').html("");
+                layer.msg('视频删除成功！',{icon:1,time:1000});
+            }else {
+                // layer.msg('图片删除失败！',{icon:6,time:1000});
+                layer.msg('视频删除失败！',{icon:6,time:1000});
+            }
+        })
+      }
+
+      //取消添加
+      function quxiao() {
+        video = $('#editvideo').val();
+        img = $('#editimg').val();
+        $.post("{:url('ajax_quxiao')}",{video:video,img:img},function(data){
+
+        })
+      }
+
+    </script>
+
+    <script type="text/javascript">
+      function picture() {
+          var data = new FormData($('#article')[0]);
+          $.ajax({
+              url: "{:url('ajax_upload')}",
+              type: 'POST',
+              data: data,
+              dataType: 'JSON',
+              cache: false,
+              processData: false,
+              contentType: false,
+              success: function(data) {
+                  // console.log(data['file']);
+                  if (data['img']) {
+                      var result = '';
+                      var result1 = '';
+                      result += '<img src="' + '__STATIC__/uploads/author/' + data['site'] + '" width="120" height="80">';
+                      $('#result').html(result);
+                      $('.article_span').html(data['site']);
+                  }
+              },
+              error: function(data) {
+                  alert('错误');
+              }
+          });
+      }
+
+      $(".layui-layer-setwin .layui-layer-close1").click(function(){
+        alert("222");
+      });
+
+      $("#layui-layer6").click(function(){
+        alert("222");
+      });
+    </script>
+
+    <script>
+      layui.use(['form', 'layer'],
+        function() {
+          $ = layui.jquery;
+          var form = layui.form,
+            layer = layui.layer;
+
+
+          //监听提交
+          form.on('submit(add)',
+            function(data) {
+              console.log(data);
+              //发异步，把数据提交给php
+              str = $('#addForm').serialize();  //获取序列化的数据
+              // alert(str);
+              $.post("{:url('add')}",{str:str},function(data){
+                  if (!data.code==1) {
+                      layer.alert("添加成功", {
+                          icon: 6
+                      },
+                      function() {
+                          // 获得frame索引
+                          var index = parent.layer.getFrameIndex(window.name);
+                          //关闭当前frame
+                          parent.layer.close(index);
+                          // 刷新父级页面
+                          parent.location.reload();
+                      });
+                  }else {
+                      layer.alert(data.error);
+                  }
+              })
+            });
+
+        });
+    </script>
+  </body>
+</html>

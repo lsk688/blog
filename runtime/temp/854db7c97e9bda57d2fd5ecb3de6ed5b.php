@@ -1,0 +1,216 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:72:"D:\phpstudy_pro\WWW\blog\public/../application/admin\view\conf\list.html";i:1764929482;s:74:"D:\phpstudy_pro\WWW\blog\public/../application/admin\view\public\head.html";i:1764582846;}*/ ?>
+<!DOCTYPE html>
+<html class="x-admin-sm">
+    <head>
+        <meta charset="UTF-8">
+<title>后台登录-X-admin2.2</title>
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!-- <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" /> -->
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="stylesheet" href="__STATIC__/admin/css/font.css">
+<link rel="stylesheet" href="__STATIC__/admin/css/login.css">
+<link rel="stylesheet" href="__STATIC__/admin/css/xadmin.css">
+<!-- <link rel="stylesheet" href="./css/theme5.css"> -->
+<script src="__STATIC__/admin/lib/layui/layui.js" charset="utf-8"></script>
+<script type="text/javascript" src="__STATIC__/admin/js/xadmin.js"></script>
+<!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+<!--[if lt IE 9]>
+  <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+  <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<script>
+    // 是否开启刷新记忆tab功能
+    // var is_remember = false;
+</script>
+    </head>
+    <body>
+        <div class="x-nav">
+          <span class="layui-breadcrumb">
+            <a href="">首页</a>
+            <a href="">配置管理</a>
+            <a>
+              <cite>配置项列表</cite></a>
+          </span>
+          <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" onclick="location.reload()" title="刷新">
+            <i class="layui-icon layui-icon-refresh" style="line-height:30px"></i></a>
+        </div>
+        <div class="layui-fluid">
+            <div class="layui-row layui-col-space15">
+                <div class="layui-col-md12">
+                    <div class="layui-card">
+                        <div class="layui-card-body ">
+                            <form class="layui-form layui-col-space5" action="<?php echo url('index'); ?>" method="get">
+                                <div class="layui-inline layui-show-xs-block">
+                                    <input type="text" name="title"  placeholder="请输入标题" autocomplete="off" class="layui-input">
+                                </div>
+                                <div class="layui-inline layui-show-xs-block">
+                                    <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
+                                </div>
+                               <!--  <div class="layui-right" style="margin-left:30px;">
+                                  <p class="tot">
+                                    共有数据：&nbsp;<b id="tot" ></b>&nbsp;条
+                                  </p>
+                                </div> -->
+                                <div class="layui-col-md10">
+                                  共有数据：&nbsp;&nbsp;条
+                                </div>
+                            </form>
+                        </div>
+                        <div class="layui-card-body layui-table-body layui-table-main">
+                            <form action="" method="POST">
+                                <table class="layui-table layui-form">
+                                    <thead>
+                                      <tr>
+                                        <!-- <th>
+                                          <input type="checkbox" lay-filter="checkall" name="" lay-skin="primary">
+                                        </th> -->
+                                        <th>配置项名称</th>
+                                        <th>值</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php if(is_array($data) || $data instanceof \think\Collection || $data instanceof \think\Paginator): $i = 0; $__LIST__ = $data;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$dat): $mod = ($i % 2 );++$i;?>
+                                        <tr>
+                                            <td><?php echo $dat['cname']; ?></td>
+                                            <?php if($dat['type'] == 1): ?>
+                                            <td>
+                                                <input type="text" name="<?php echo $dat['ename']; ?>" value="<?php echo $dat['val']; ?>" required  lay-verify="required" placeholder="请输入网站关键字" autocomplete="off" class="layui-input">
+                                            </td>
+                                            <?php endif; if($dat['type'] == 2): ?>
+                                            <td>
+                                                <textarea name="<?php echo $dat['ename']; ?>" placeholder="请输入内容" class="layui-textarea"><?php echo $dat['val']; ?></textarea>
+                                            </td>
+                                            <?php endif; if($dat['type'] == 3): ?>
+                                            <td>
+                                                <?php
+                                                    $arr = explode(',',$dat['vals']);
+                                                    foreach ($arr as $key => $value) {
+                                                ?>
+                                                <input type="radio" name="<?php echo $dat['ename']; ?>" value="<?php echo $value; ?>" title="<?php echo $value; ?>" <?php echo $value==$dat['val']?'checked':''; ?>>
+                                                <?php 
+                                                    } 
+                                                ?>
+                                            </td>
+                                            <?php endif; if($dat['type'] == 4): ?>
+                                            <td>
+                                                <input type="checkbox" id="<?php echo $dat['ename']; ?>" name="<?php echo $dat['ename']; ?>" value="<?php echo $dat['vals']; ?>" title="<?php echo $dat['vals']; ?>" lay-skin="primary" <?php echo !empty($dat['vals']) && $dat['vals']==$dat['val']?'checked':'';; ?>>
+                                            </td>
+                                            <?php endif; if($dat['type'] == 5): ?>
+                                            <td>
+                                                <div class="layui-input-block" style="margin-left: 0;">
+                                                    <select name="<?php echo $dat['ename']; ?>" lay-verify="required">
+                                                    <?php
+                                                        $arr = explode(',',$dat['vals']);
+                                                        foreach ($arr as $key => $value) {
+                                                    ?>
+                                                    <option value="<?php echo $value; ?>" <?php echo $value==$dat['val']?'selected':''; ?>><?php echo $value; ?></option>
+                                                    <?php 
+                                                        } 
+                                                    ?>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <?php endif; ?>
+                                        </tr>
+                                        <?php endforeach; endif; else: echo "" ;endif; ?>
+                                        <tr>
+                                            <td></td>
+                                            <td><input type="submit" value="提交"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                        <div class="layui-card-body ">
+                            <div class="page">
+                                <div>
+                                  <ul>
+                                    
+                                  </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </body>
+    <script>
+      layui.use(['laydate','form'], function(){
+        var laydate = layui.laydate;
+        var  form = layui.form;
+
+
+        // 监听全选
+        form.on('checkbox(checkall)', function(data){
+
+          if(data.elem.checked){
+            $('tbody input[type="checkbox"]').prop('checked',true);
+          }else{
+            $('tbody input[type="checkbox"]').prop('checked',false);
+          }
+          form.render('checkbox');
+        }); 
+        
+        //执行一个laydate实例
+        laydate.render({
+          elem: '#start' //指定元素
+        });
+
+        //执行一个laydate实例
+        laydate.render({
+          elem: '#end' //指定元素
+        });
+
+
+      });
+
+      
+
+
+      //批量删除
+      function delAll (argument) {
+        var ids = [];
+        // 获取选中的id 
+        $('tbody input').each(function(index, el) {
+            if($(this).prop('checked')){
+              if ($(this).val()!=0) {
+                ids.push($(this).val())
+              }
+            }
+        });
+        // str=ids.join(',',ids);          //把数组转换为字符串并用逗号隔开
+        // $.post('<?php echo url('ajax_delAll'); ?>',str:str,function(data){
+        //   layer.confirm('确认要删除吗？'+ids.toString(),function(index){
+        //     if (data==ids.length) {
+        //         //捉到所有被选中的，发异步进行删除
+        //         layer.msg('删除成功', {icon: 1});
+        //         $(".layui-form-checked").not('.header').parents('tr').remove();
+        //     }else {
+        //         alert('删除失败!!!');
+        //     }
+        //     // //捉到所有被选中的，发异步进行删除
+        //     // layer.msg('删除成功', {icon: 1});
+        //     // $(".layui-form-checked").not('.header').parents('tr').remove();
+        //   });
+        // })
+        str=ids.join(',',ids);
+        // alert(ids.length);
+        layer.confirm('确认要删除吗？'+ids.toString(),function(index){
+          $.post("<?php echo url('ajax_delAll'); ?>",{id:str},function(data){
+            if (data==ids.length) {
+                //捉到所有被选中的，发异步进行删除
+                layer.msg('删除成功', {icon: 1});
+                $(".layui-form-checked").not('.header').parents('tr').remove();
+            }else {
+                layer.msg('删除失败!!!');
+            }
+          })
+            // //捉到所有被选中的，发异步进行删除
+            // layer.msg('删除成功', {icon: 1});
+            // $(".layui-form-checked").not('.header').parents('tr').remove();
+        });
+      }
+    </script>
+</html>

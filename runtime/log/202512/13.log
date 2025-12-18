@@ -1,0 +1,879 @@
+[ 2025-12-13T12:05:54+08:00 ] ::1 ::1 GET /blog/public/index.php/admin/index
+[ log ] localhost/blog/public/index.php/admin/index [运行时间：0.777434s][吞吐率：1.29req/s] [内存消耗：1,837.28kb] [文件加载：49]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_b393d153aeb26b46e9431fabaf0f6190=1762687887,1763793090,1764406519,1764673664',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br, zstd',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'none',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+  'sec-purpose' => 'prefetch;prerender',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'sec-ch-ua-platform' => '"Windows"',
+  'sec-ch-ua-mobile' => '?0',
+  'sec-ch-ua' => '"Google Chrome";v="143", "Chromium";v="143", "Not A(Brand";v="24"',
+  'connection' => 'close',
+  'host' => 'localhost',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'path' => 'D:\\phpstudy_pro\\WWW\\blog\\runtime\\temp\\',
+  'expire' => 3600,
+)
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\blog\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2025-12-13T12:05:55+08:00 ] ::1 ::1 GET /blog/public/index.php/
+[ log ] localhost/blog/public/index.php/ [运行时间：0.252822s][吞吐率：3.96req/s] [内存消耗：2,792.87kb] [文件加载：56]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_b393d153aeb26b46e9431fabaf0f6190=1762687887,1763793090,1764406519,1764673664; PHPSESSID=ip4qs7t33nard2ne4t2jml11pa',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br, zstd',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'none',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+  'sec-purpose' => 'prefetch;prerender',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'sec-ch-ua-platform' => '"Windows"',
+  'sec-ch-ua-mobile' => '?0',
+  'sec-ch-ua' => '"Google Chrome";v="143", "Chromium";v="143", "Not A(Brand";v="24"',
+  'connection' => 'close',
+  'host' => 'localhost',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\phpstudy_pro\WWW\blog\application\index\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\blog\public/../application/index\view\index\index.html [ array (
+  0 => 'conf',
+  1 => 'colum',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001503s ] mysql:dbname=blog;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `conf` [ RunTime:0.006695s ]
+[ sql ] [ SQL ] SELECT * FROM `conf` [ RunTime:0.003704s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000544s ] mysql:dbname=blog;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `colum` [ RunTime:0.001536s ]
+[ sql ] [ SQL ] SELECT * FROM `colum` [ RunTime:0.001161s ]
+
+---------------------------------------------------------------
+[ 2025-12-13T15:53:05+08:00 ] ::1 ::1 GET /blog/public/index.php/admin/index
+[ log ] localhost/blog/public/index.php/admin/index [运行时间：0.890342s][吞吐率：1.12req/s] [内存消耗：1,837.29kb] [文件加载：49]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_b393d153aeb26b46e9431fabaf0f6190=1762687887,1763793090,1764406519,1764673664',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br, zstd',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'none',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+  'sec-purpose' => 'prefetch;prerender',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'sec-ch-ua-platform' => '"Windows"',
+  'sec-ch-ua-mobile' => '?0',
+  'sec-ch-ua' => '"Google Chrome";v="143", "Chromium";v="143", "Not A(Brand";v="24"',
+  'connection' => 'close',
+  'host' => 'localhost',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'path' => 'D:\\phpstudy_pro\\WWW\\blog\\runtime\\temp\\',
+  'expire' => 3600,
+)
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\blog\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2025-12-13T15:53:07+08:00 ] ::1 ::1 GET /blog/public/index.php/admin/login/index.html
+[ log ] localhost/blog/public/index.php/admin/login/index.html [运行时间：0.183884s][吞吐率：5.44req/s] [内存消耗：2,541.09kb] [文件加载：55]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_b393d153aeb26b46e9431fabaf0f6190=1762687887,1763793090,1764406519,1764673664; PHPSESSID=t17ksqvvq3tgee9uu8aiqmj3dn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br, zstd',
+  'referer' => 'http://localhost/blog/public/index.php/admin/index',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'sec-ch-ua-platform' => '"Windows"',
+  'sec-ch-ua-mobile' => '?0',
+  'sec-ch-ua' => '"Google Chrome";v="143", "Chromium";v="143", "Not A(Brand";v="24"',
+  'connection' => 'close',
+  'host' => 'localhost',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\admin\Controller\Login->index[ D:\phpstudy_pro\WWW\blog\application\admin\controller\Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\blog\public/../application/admin\view\login\index.html [ array (
+  0 => 'data',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000682s ] mysql:dbname=blog;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `conf` [ RunTime:0.001330s ]
+[ sql ] [ SQL ] SELECT * FROM `conf` WHERE  `ename` = 'code' LIMIT 1 [ RunTime:0.000651s ]
+
+---------------------------------------------------------------
+[ 2025-12-13T15:53:07+08:00 ] ::1 ::1 GET /blog/public/index.php/captcha.html
+[ log ] localhost/blog/public/index.php/captcha.html [运行时间：0.085734s][吞吐率：11.66req/s] [内存消耗：1,473.13kb] [文件加载：39]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'method',
+  'method' => 
+  array (
+    0 => '\\think\\captcha\\CaptchaController',
+    1 => 'index',
+  ),
+  'var' => 
+  array (
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_b393d153aeb26b46e9431fabaf0f6190=1762687887,1763793090,1764406519,1764673664; PHPSESSID=t17ksqvvq3tgee9uu8aiqmj3dn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br, zstd',
+  'referer' => 'http://localhost/blog/public/index.php/admin/login/index.html',
+  'sec-fetch-dest' => 'image',
+  'sec-fetch-mode' => 'no-cors',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
+  'sec-ch-ua-mobile' => '?0',
+  'sec-ch-ua' => '"Google Chrome";v="143", "Chromium";v="143", "Not A(Brand";v="24"',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36',
+  'sec-ch-ua-platform' => '"Windows"',
+  'connection' => 'close',
+  'host' => 'localhost',
+)
+[ info ] [ PARAM ] array (
+  'id' => NULL,
+)
+[ info ] [ RUN ] think\captcha\CaptchaController->index[ D:\phpstudy_pro\WWW\blog\vendor\topthink\think-captcha\src\CaptchaController.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'path' => 'D:\\phpstudy_pro\\WWW\\blog\\runtime\\temp\\',
+  'expire' => 3600,
+)
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2025-12-13T15:53:13+08:00 ] ::1 ::1 POST /blog/public/index.php/admin/login/index.html
+[ log ] localhost/blog/public/index.php/admin/login/index.html [运行时间：0.156597s][吞吐率：6.39req/s] [内存消耗：3,124.88kb] [文件加载：61]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_b393d153aeb26b46e9431fabaf0f6190=1762687887,1763793090,1764406519,1764673664; PHPSESSID=t17ksqvvq3tgee9uu8aiqmj3dn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br, zstd',
+  'referer' => 'http://localhost/blog/public/index.php/admin/login/index.html',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'origin' => 'http://localhost',
+  'sec-ch-ua-platform' => '"Windows"',
+  'sec-ch-ua-mobile' => '?0',
+  'sec-ch-ua' => '"Google Chrome";v="143", "Chromium";v="143", "Not A(Brand";v="24"',
+  'cache-control' => 'max-age=0',
+  'content-length' => '38',
+  'connection' => 'close',
+  'host' => 'localhost',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'admin',
+  'password' => 'admin',
+  'yzm' => 'tyfy',
+)
+[ info ] [ RUN ] app\admin\Controller\Login->index[ D:\phpstudy_pro\WWW\blog\application\admin\controller\Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'path' => 'D:\\phpstudy_pro\\WWW\\blog\\runtime\\temp\\',
+  'expire' => 3600,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT File
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\blog\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000567s ] mysql:dbname=blog;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `conf` [ RunTime:0.000995s ]
+[ sql ] [ SQL ] SELECT * FROM `conf` WHERE  `ename` = 'code' LIMIT 1 [ RunTime:0.000539s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000680s ] mysql:dbname=blog;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.001724s ]
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `username` = 'admin' LIMIT 1 [ RunTime:0.001247s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.017720s ] mysql:dbname=blog;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SELECT * FROM `user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001351s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.017402s ] mysql:dbname=blog;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] UPDATE `user`  SET `lastlogin`='2025-12-13 15:53:13',`num`=64  WHERE  `id` = 1 [ RunTime:0.004086s ]
+
+---------------------------------------------------------------
+[ 2025-12-13T15:53:15+08:00 ] ::1 ::1 GET /blog/public/index.php/admin/index/index.html
+[ log ] localhost/blog/public/index.php/admin/index/index.html [运行时间：0.049784s][吞吐率：20.09req/s] [内存消耗：1,907.66kb] [文件加载：50]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_b393d153aeb26b46e9431fabaf0f6190=1762687887,1763793090,1764406519,1764673664; PHPSESSID=t17ksqvvq3tgee9uu8aiqmj3dn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br, zstd',
+  'referer' => 'http://localhost/blog/public/index.php/admin/login/index.html',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'sec-ch-ua-platform' => '"Windows"',
+  'sec-ch-ua-mobile' => '?0',
+  'sec-ch-ua' => '"Google Chrome";v="143", "Chromium";v="143", "Not A(Brand";v="24"',
+  'connection' => 'close',
+  'host' => 'localhost',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'path' => 'D:\\phpstudy_pro\\WWW\\blog\\runtime\\temp\\',
+  'expire' => 3600,
+)
+[ info ] [ RUN ] app\admin\Controller\Index->index[ D:\phpstudy_pro\WWW\blog\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\blog\public/../application/admin\view\index\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2025-12-13T15:53:15+08:00 ] ::1 ::1 GET /blog/public/index.php/admin/index/welcome.html
+[ log ] localhost/blog/public/index.php/admin/index/welcome.html [运行时间：0.045367s][吞吐率：22.04req/s] [内存消耗：1,832.05kb] [文件加载：49]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'welcome',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_b393d153aeb26b46e9431fabaf0f6190=1762687887,1763793090,1764406519,1764673664; PHPSESSID=t17ksqvvq3tgee9uu8aiqmj3dn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br, zstd',
+  'referer' => 'http://localhost/blog/public/index.php/admin/index/index.html',
+  'sec-fetch-dest' => 'iframe',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'sec-ch-ua-platform' => '"Windows"',
+  'sec-ch-ua-mobile' => '?0',
+  'sec-ch-ua' => '"Google Chrome";v="143", "Chromium";v="143", "Not A(Brand";v="24"',
+  'connection' => 'close',
+  'host' => 'localhost',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'path' => 'D:\\phpstudy_pro\\WWW\\blog\\runtime\\temp\\',
+  'expire' => 3600,
+)
+[ info ] [ RUN ] app\admin\Controller\Index->welcome[ D:\phpstudy_pro\WWW\blog\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\blog\public/../application/admin\view\index\welcome.html [ array (
+  0 => 'time',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2025-12-13T15:53:16+08:00 ] ::1 ::1 GET /blog/public/index.php/admin/conf/list.html
+[ log ] localhost/blog/public/index.php/admin/conf/list.html [运行时间：0.115592s][吞吐率：8.65req/s] [内存消耗：2,588.70kb] [文件加载：57]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'conf',
+    2 => 'list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_b393d153aeb26b46e9431fabaf0f6190=1762687887,1763793090,1764406519,1764673664; PHPSESSID=t17ksqvvq3tgee9uu8aiqmj3dn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br, zstd',
+  'referer' => 'http://localhost/blog/public/index.php/admin/index/index.html',
+  'sec-fetch-dest' => 'iframe',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'sec-ch-ua-platform' => '"Windows"',
+  'sec-ch-ua-mobile' => '?0',
+  'sec-ch-ua' => '"Google Chrome";v="143", "Chromium";v="143", "Not A(Brand";v="24"',
+  'connection' => 'close',
+  'host' => 'localhost',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'path' => 'D:\\phpstudy_pro\\WWW\\blog\\runtime\\temp\\',
+  'expire' => 3600,
+)
+[ info ] [ RUN ] app\admin\controller\Conf->list[ D:\phpstudy_pro\WWW\blog\application\admin\controller\Conf.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\blog\public/../application/admin\view\conf\list.html [ array (
+  0 => 'data',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000720s ] mysql:dbname=blog;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `conf` [ RunTime:0.008331s ]
+[ sql ] [ SQL ] SELECT * FROM `conf` [ RunTime:0.000606s ]
+
+---------------------------------------------------------------
+[ 2025-12-13T15:53:16+08:00 ] ::1 ::1 GET /blog/public/index.php/admin/conf/index.html
+[ log ] localhost/blog/public/index.php/admin/conf/index.html [运行时间：0.137387s][吞吐率：7.28req/s] [内存消耗：2,967.71kb] [文件加载：62]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'conf',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_b393d153aeb26b46e9431fabaf0f6190=1762687887,1763793090,1764406519,1764673664; PHPSESSID=t17ksqvvq3tgee9uu8aiqmj3dn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br, zstd',
+  'referer' => 'http://localhost/blog/public/index.php/admin/index/index.html',
+  'sec-fetch-dest' => 'iframe',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'sec-ch-ua-platform' => '"Windows"',
+  'sec-ch-ua-mobile' => '?0',
+  'sec-ch-ua' => '"Google Chrome";v="143", "Chromium";v="143", "Not A(Brand";v="24"',
+  'connection' => 'close',
+  'host' => 'localhost',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'path' => 'D:\\phpstudy_pro\\WWW\\blog\\runtime\\temp\\',
+  'expire' => 3600,
+)
+[ info ] [ RUN ] app\admin\controller\Conf->index[ D:\phpstudy_pro\WWW\blog\application\admin\controller\Conf.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\blog\public/../application/admin\view\conf\index.html [ array (
+  0 => 'data',
+  1 => 'page',
+  2 => 'count',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000742s ] mysql:dbname=blog;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `conf` [ RunTime:0.000909s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `conf` LIMIT 1 [ RunTime:0.001263s ]
+[ sql ] [ SQL ] SELECT * FROM `conf` LIMIT 0,10 [ RunTime:0.000123s ]
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000607s ] mysql:dbname=blog;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `conf` LIMIT 1 [ RunTime:0.000537s ]
+
+---------------------------------------------------------------
+[ 2025-12-13T15:53:19+08:00 ] ::1 ::1 GET /blog/public/index.php/admin/index/memberlist.html
+[ log ] localhost/blog/public/index.php/admin/index/memberlist.html [运行时间：0.277999s][吞吐率：3.60req/s] [内存消耗：3,097.10kb] [文件加载：64]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'memberlist',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_b393d153aeb26b46e9431fabaf0f6190=1762687887,1763793090,1764406519,1764673664; PHPSESSID=t17ksqvvq3tgee9uu8aiqmj3dn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br, zstd',
+  'referer' => 'http://localhost/blog/public/index.php/admin/index/index.html',
+  'sec-fetch-dest' => 'iframe',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'sec-ch-ua-platform' => '"Windows"',
+  'sec-ch-ua-mobile' => '?0',
+  'sec-ch-ua' => '"Google Chrome";v="143", "Chromium";v="143", "Not A(Brand";v="24"',
+  'connection' => 'close',
+  'host' => 'localhost',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'path' => 'D:\\phpstudy_pro\\WWW\\blog\\runtime\\temp\\',
+  'expire' => 3600,
+)
+[ info ] [ RUN ] app\admin\Controller\Index->memberList[ D:\phpstudy_pro\WWW\blog\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\blog\public/../application/admin\view\index\memberlist.html [ array (
+  0 => 'data',
+  1 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000558s ] mysql:dbname=blog;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.000917s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `user` LIMIT 1 [ RunTime:0.000530s ]
+[ sql ] [ SQL ] SELECT * FROM `user` ORDER BY `id`  asc LIMIT 0,15 [ RunTime:0.000198s ]
+
+---------------------------------------------------------------
+[ 2025-12-13T15:58:27+08:00 ] ::1 ::1 POST /blog/public/index.php/admin/index/ajax_status.html
+[ log ] localhost/blog/public/index.php/admin/index/ajax_status.html [运行时间：0.021579s][吞吐率：46.34req/s] [内存消耗：2,510.60kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'ajax_status',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_b393d153aeb26b46e9431fabaf0f6190=1762687887,1763793090,1764406519,1764673664; PHPSESSID=t17ksqvvq3tgee9uu8aiqmj3dn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br, zstd',
+  'referer' => 'http://localhost/blog/public/index.php/admin/index/memberlist.html',
+  'sec-fetch-dest' => 'empty',
+  'sec-fetch-mode' => 'cors',
+  'sec-fetch-site' => 'same-origin',
+  'origin' => 'http://localhost',
+  'sec-ch-ua-mobile' => '?0',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'sec-ch-ua' => '"Google Chrome";v="143", "Chromium";v="143", "Not A(Brand";v="24"',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'sec-ch-ua-platform' => '"Windows"',
+  'content-length' => '13',
+  'connection' => 'close',
+  'host' => 'localhost',
+)
+[ info ] [ PARAM ] array (
+  'id' => '2',
+  'status' => '0',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'path' => 'D:\\phpstudy_pro\\WWW\\blog\\runtime\\temp\\',
+  'expire' => 3600,
+)
+[ info ] [ RUN ] app\admin\Controller\Index->ajax_status[ D:\phpstudy_pro\WWW\blog\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000825s ] mysql:dbname=blog;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.001323s ]
+[ sql ] [ SQL ] UPDATE `user`  SET `status`=0  WHERE  `id` = 2 [ RunTime:0.005017s ]
+
+---------------------------------------------------------------
+[ 2025-12-13T15:58:29+08:00 ] ::1 ::1 POST /blog/public/index.php/admin/index/ajax_status.html
+[ log ] localhost/blog/public/index.php/admin/index/ajax_status.html [运行时间：0.019186s][吞吐率：52.12req/s] [内存消耗：2,510.60kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'ajax_status',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_b393d153aeb26b46e9431fabaf0f6190=1762687887,1763793090,1764406519,1764673664; PHPSESSID=t17ksqvvq3tgee9uu8aiqmj3dn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br, zstd',
+  'referer' => 'http://localhost/blog/public/index.php/admin/index/memberlist.html',
+  'sec-fetch-dest' => 'empty',
+  'sec-fetch-mode' => 'cors',
+  'sec-fetch-site' => 'same-origin',
+  'origin' => 'http://localhost',
+  'sec-ch-ua-mobile' => '?0',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'sec-ch-ua' => '"Google Chrome";v="143", "Chromium";v="143", "Not A(Brand";v="24"',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'sec-ch-ua-platform' => '"Windows"',
+  'content-length' => '13',
+  'connection' => 'close',
+  'host' => 'localhost',
+)
+[ info ] [ PARAM ] array (
+  'id' => '2',
+  'status' => '1',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'path' => 'D:\\phpstudy_pro\\WWW\\blog\\runtime\\temp\\',
+  'expire' => 3600,
+)
+[ info ] [ RUN ] app\admin\Controller\Index->ajax_status[ D:\phpstudy_pro\WWW\blog\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000612s ] mysql:dbname=blog;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.001004s ]
+[ sql ] [ SQL ] UPDATE `user`  SET `status`=1  WHERE  `id` = 2 [ RunTime:0.004704s ]
+
+---------------------------------------------------------------
+[ 2025-12-13T16:02:22+08:00 ] ::1 ::1 GET /blog/public/index.php/admin/index/index.html
+[ log ] localhost/blog/public/index.php/admin/index/index.html [运行时间：0.011281s][吞吐率：88.64req/s] [内存消耗：1,908.77kb] [文件加载：50]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_b393d153aeb26b46e9431fabaf0f6190=1762687887,1763793090,1764406519,1764673664; PHPSESSID=t17ksqvvq3tgee9uu8aiqmj3dn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br, zstd',
+  'referer' => 'http://localhost/blog/public/index.php/admin/login/index.html',
+  'sec-fetch-dest' => 'document',
+  'sec-fetch-user' => '?1',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'sec-ch-ua-platform' => '"Windows"',
+  'sec-ch-ua-mobile' => '?0',
+  'sec-ch-ua' => '"Google Chrome";v="143", "Chromium";v="143", "Not A(Brand";v="24"',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'localhost',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'path' => 'D:\\phpstudy_pro\\WWW\\blog\\runtime\\temp\\',
+  'expire' => 3600,
+)
+[ info ] [ RUN ] app\admin\Controller\Index->index[ D:\phpstudy_pro\WWW\blog\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\blog\public/../application/admin\view\index\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2025-12-13T16:02:22+08:00 ] ::1 ::1 GET /blog/public/index.php/admin/index/welcome.html
+[ log ] localhost/blog/public/index.php/admin/index/welcome.html [运行时间：0.010099s][吞吐率：99.02req/s] [内存消耗：1,832.05kb] [文件加载：49]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'welcome',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_b393d153aeb26b46e9431fabaf0f6190=1762687887,1763793090,1764406519,1764673664; PHPSESSID=t17ksqvvq3tgee9uu8aiqmj3dn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br, zstd',
+  'referer' => 'http://localhost/blog/public/index.php/admin/index/index.html',
+  'sec-fetch-dest' => 'iframe',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'sec-ch-ua-platform' => '"Windows"',
+  'sec-ch-ua-mobile' => '?0',
+  'sec-ch-ua' => '"Google Chrome";v="143", "Chromium";v="143", "Not A(Brand";v="24"',
+  'connection' => 'close',
+  'host' => 'localhost',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'path' => 'D:\\phpstudy_pro\\WWW\\blog\\runtime\\temp\\',
+  'expire' => 3600,
+)
+[ info ] [ RUN ] app\admin\Controller\Index->welcome[ D:\phpstudy_pro\WWW\blog\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\blog\public/../application/admin\view\index\welcome.html [ array (
+  0 => 'time',
+) ]
+[ info ] [ LOG ] INIT File
+
+---------------------------------------------------------------
+[ 2025-12-13T16:02:22+08:00 ] ::1 ::1 GET /blog/public/index.php/admin/index/memberlist.html
+[ log ] localhost/blog/public/index.php/admin/index/memberlist.html [运行时间：0.126135s][吞吐率：7.93req/s] [内存消耗：3,097.17kb] [文件加载：64]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'memberlist',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_b393d153aeb26b46e9431fabaf0f6190=1762687887,1763793090,1764406519,1764673664; PHPSESSID=t17ksqvvq3tgee9uu8aiqmj3dn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br, zstd',
+  'referer' => 'http://localhost/blog/public/index.php/admin/index/index.html',
+  'sec-fetch-dest' => 'iframe',
+  'sec-fetch-mode' => 'navigate',
+  'sec-fetch-site' => 'same-origin',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'sec-ch-ua-platform' => '"Windows"',
+  'sec-ch-ua-mobile' => '?0',
+  'sec-ch-ua' => '"Google Chrome";v="143", "Chromium";v="143", "Not A(Brand";v="24"',
+  'connection' => 'close',
+  'host' => 'localhost',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'path' => 'D:\\phpstudy_pro\\WWW\\blog\\runtime\\temp\\',
+  'expire' => 3600,
+)
+[ info ] [ RUN ] app\admin\Controller\Index->memberList[ D:\phpstudy_pro\WWW\blog\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpstudy_pro\WWW\blog\public/../application/admin\view\index\memberlist.html [ array (
+  0 => 'data',
+  1 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.017089s ] mysql:dbname=blog;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.001335s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `user` LIMIT 1 [ RunTime:0.000481s ]
+[ sql ] [ SQL ] SELECT * FROM `user` ORDER BY `id`  asc LIMIT 0,15 [ RunTime:0.000131s ]
+
+---------------------------------------------------------------
+[ 2025-12-13T16:03:07+08:00 ] ::1 ::1 POST /blog/public/index.php/admin/index/ajax_status.html
+[ log ] localhost/blog/public/index.php/admin/index/ajax_status.html [运行时间：0.021109s][吞吐率：47.37req/s] [内存消耗：2,510.60kb] [文件加载：54]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\blog\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'ajax_status',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'Hm_lvt_b393d153aeb26b46e9431fabaf0f6190=1762687887,1763793090,1764406519,1764673664; PHPSESSID=t17ksqvvq3tgee9uu8aiqmj3dn',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate, br, zstd',
+  'referer' => 'http://localhost/blog/public/index.php/admin/index/memberlist.html',
+  'sec-fetch-dest' => 'empty',
+  'sec-fetch-mode' => 'cors',
+  'sec-fetch-site' => 'same-origin',
+  'origin' => 'http://localhost',
+  'sec-ch-ua-mobile' => '?0',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'sec-ch-ua' => '"Google Chrome";v="143", "Chromium";v="143", "Not A(Brand";v="24"',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'sec-ch-ua-platform' => '"Windows"',
+  'content-length' => '13',
+  'connection' => 'close',
+  'host' => 'localhost',
+)
+[ info ] [ PARAM ] array (
+  'id' => '4',
+  'status' => '1',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+  'path' => 'D:\\phpstudy_pro\\WWW\\blog\\runtime\\temp\\',
+  'expire' => 3600,
+)
+[ info ] [ RUN ] app\admin\Controller\Index->ajax_status[ D:\phpstudy_pro\WWW\blog\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000731s ] mysql:dbname=blog;host=127.0.0.1;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `user` [ RunTime:0.001115s ]
+[ sql ] [ SQL ] UPDATE `user`  SET `status`=1  WHERE  `id` = 4 [ RunTime:0.004627s ]
+
+---------------------------------------------------------------

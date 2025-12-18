@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+    <head>
+        {include file="public/head" /}
+    </head>
+    <body>
+        <div class="x-nav">
+          <span class="layui-breadcrumb">
+            <a href="">首页</a>
+            <a href="">配置管理</a>
+            <a>
+              <cite>配置项列表</cite></a>
+          </span>
+          <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" onclick="location.reload()" title="刷新">
+            <i class="layui-icon layui-icon-refresh" style="line-height:30px"></i></a>
+        </div>
+        <div class="layui-fluid">
+            <div class="layui-row layui-col-space15">
+                <div class="layui-col-md12">
+                    <div class="layui-card">
+                        <div class="layui-card-body ">
+                            <form class="layui-form layui-col-space5" action="{:url('index')}" method="get">
+                                <div class="layui-inline layui-show-xs-block">
+                                    <input type="text" name="title"  placeholder="请输入标题" autocomplete="off" class="layui-input">
+                                </div>
+                                <div class="layui-inline layui-show-xs-block">
+                                    <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
+                                </div>
+                               <!--  <div class="layui-right" style="margin-left:30px;">
+                                  <p class="tot">
+                                    共有数据：&nbsp;<b id="tot" ></b>&nbsp;条
+                                  </p>
+                                </div> -->
+                                <div class="layui-col-md10">
+                                  共有数据：&nbsp;&nbsp;条
+                                </div>
+                            </form>
+                        </div>
+                        <div class="layui-card-body layui-table-body layui-table-main">
+                            <form action="" method="POST">
+                                <table class="layui-table layui-form">
+                                    <thead>
+                                      <tr>
+                                        <!-- <th>
+                                          <input type="checkbox" lay-filter="checkall" name="" lay-skin="primary">
+                                        </th> -->
+                                        <th>配置项名称</th>
+                                        <th>值</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                        {volist name="data" id="dat"}
+                                        <tr>
+                                            <td>{$dat.cname}</td>
+                                            {if condition="$dat.type eq 1"}
+                                            <td>
+                                                <input type="text" name="{$dat.ename}" value="{$dat.val}" required  lay-verify="required" placeholder="请输入网站关键字" autocomplete="off" class="layui-input">
+                                            </td>
+                                            {/if}
+                                            {if condition="$dat.type eq 2"}
+                                            <td>
+                                                <textarea name="{$dat.ename}" placeholder="请输入内容" class="layui-textarea">{$dat.val}</textarea>
+                                            </td>
+                                            {/if}
+                                            {if condition="$dat.type eq 3"}
+                                            <td>
+                                                <?php
+                                                    $arr = explode(',',$dat['vals']);
+                                                    foreach ($arr as $key => $value) {
+                                                ?>
+                                                <input type="radio" name="{$dat.ename}" value="<?php echo $value; ?>" title="<?php echo $value; ?>" <?php echo $value==$dat['val']?'checked':''; ?>>
+                                                <?php 
+                                                    } 
+                                                ?>
+                                            </td>
+                                            {/if}
+                                            {if condition="$dat.type eq 4"}
+                                            <td>
+                                                <input type="checkbox" id="{$dat.ename}" name="{$dat.ename}" value="{$dat.vals}" title="{$dat.vals}" lay-skin="primary" {$dat.vals==$dat.val?'checked':'';}>
+                                            </td>
+                                            {/if}
+                                            {if condition="$dat.type eq 5"}
+                                            <td>
+                                                <div class="layui-input-block" style="margin-left: 0;">
+                                                    <select name="{$dat.ename}" lay-verify="required">
+                                                    <?php
+                                                        $arr = explode(',',$dat['vals']);
+                                                        foreach ($arr as $key => $value) {
+                                                    ?>
+                                                    <option value="<?php echo $value; ?>" <?php echo $value==$dat['val']?'selected':''; ?>><?php echo $value; ?></option>
+                                                    <?php 
+                                                        } 
+                                                    ?>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            {/if}
+                                        </tr>
+                                        {/volist}
+                                        <tr>
+                                            <td></td>
+                                            <td><input type="submit" value="提交"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                        <div class="layui-card-body ">
+                            <div class="page">
+                                <div>
+                                  <ul>
+                                    
+                                  </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </body>
+    <script>
+      layui.use(['laydate','form'], function(){
+        var laydate = layui.laydate;
+        var  form = layui.form;
+
+
+        // 监听全选
+        form.on('checkbox(checkall)', function(data){
+
+          if(data.elem.checked){
+            $('tbody input[type="checkbox"]').prop('checked',true);
+          }else{
+            $('tbody input[type="checkbox"]').prop('checked',false);
+          }
+          form.render('checkbox');
+        }); 
+        
+        //执行一个laydate实例
+        laydate.render({
+          elem: '#start' //指定元素
+        });
+
+        //执行一个laydate实例
+        laydate.render({
+          elem: '#end' //指定元素
+        });
+
+
+      });
+
+      
+
+
+      //批量删除
+      function delAll (argument) {
+        var ids = [];
+        // 获取选中的id 
+        $('tbody input').each(function(index, el) {
+            if($(this).prop('checked')){
+              if ($(this).val()!=0) {
+                ids.push($(this).val())
+              }
+            }
+        });
+        // str=ids.join(',',ids);          //把数组转换为字符串并用逗号隔开
+        // $.post('{:url('ajax_delAll')}',str:str,function(data){
+        //   layer.confirm('确认要删除吗？'+ids.toString(),function(index){
+        //     if (data==ids.length) {
+        //         //捉到所有被选中的，发异步进行删除
+        //         layer.msg('删除成功', {icon: 1});
+        //         $(".layui-form-checked").not('.header').parents('tr').remove();
+        //     }else {
+        //         alert('删除失败!!!');
+        //     }
+        //     // //捉到所有被选中的，发异步进行删除
+        //     // layer.msg('删除成功', {icon: 1});
+        //     // $(".layui-form-checked").not('.header').parents('tr').remove();
+        //   });
+        // })
+        str=ids.join(',',ids);
+        // alert(ids.length);
+        layer.confirm('确认要删除吗？'+ids.toString(),function(index){
+          $.post("{:url('ajax_delAll')}",{id:str},function(data){
+            if (data==ids.length) {
+                //捉到所有被选中的，发异步进行删除
+                layer.msg('删除成功', {icon: 1});
+                $(".layui-form-checked").not('.header').parents('tr').remove();
+            }else {
+                layer.msg('删除失败!!!');
+            }
+          })
+            // //捉到所有被选中的，发异步进行删除
+            // layer.msg('删除成功', {icon: 1});
+            // $(".layui-form-checked").not('.header').parents('tr').remove();
+        });
+      }
+    </script>
+</html>

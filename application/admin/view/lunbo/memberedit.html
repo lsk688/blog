@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+    <head>
+        {include file="public/head" /}
+        <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+        <!--[if lt IE 9]>
+            <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+            <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+        <div class="layui-fluid">
+            <div class="layui-row">
+                <form class="layui-form" id="updateForm" onsubmit="return false">
+                    <input type="hidden" name="id" id="id" value="{$data.id}">
+                    <div class="layui-form-item">
+                        <label for="L_pass" class="layui-form-label">
+                            <span class="x-red">*</span>标题</label>
+                        <div class="layui-input-inline">
+                            <input type="text" id="L_username" name="title" required="" lay-verify="nikename"
+                                autocomplete="off" class="layui-input" value="{$data.title}">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="L_pass" class="layui-form-label">
+                            图片上传</label>
+                        <div class="layui-input-inline" style="position: relative;width: 78%;">
+                            <button type="button" class="layui-btn" id="test1">
+                              <i class="layui-icon">&#xe67c;</i>上传图片
+                            </button>
+                            <input type="hidden" name="img" id="editimg" value="{$data.img}">
+                            <input type="hidden" name="oldimg" id="oldimg" value="{$data.img}">
+                            <div class="article_span_img" style="">
+                                <span style="position: absolute;top: 6px;left: 90px;font-size: 12px;">
+                                    {$data.img}
+                                </span>
+                            </div>
+                            <div id="result_img" style="margin-top: 8px;position: relative;width: 150px;">
+                                {if condition="$data.img neq ''"}
+                                <img src="__STATIC__/uploads/lunbo/{$data.img}" width="150" height="110">
+                                <button type="button" onclick="delimg()" style="position: absolute;top: 0px;right: 0px;">
+                                    <i class="layui-icon">&#xe640;</i>
+                                </button>
+                                {/if}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label for="L_pass" class="layui-form-label">
+                            视频上传</label>
+                        <div class="layui-input-inline" style="position: relative;width: 78%;">
+                            <button type="button" class="layui-btn" id="video">
+                              <i class="layui-icon">&#xe67c;</i>上传视频
+                            </button>
+                            <input type="hidden" name="video" id="editvideo" value="{$data.video}">
+                            <input type="hidden" name="oldvideo" id="oldvideo" value="{$data.video}">
+                            <div class="article_span_video" style="">
+                                <span style="position: absolute;top: 6px;left: 90px;font-size: 12px;">
+                                    {$data.video}
+                                </span>
+                            </div>
+                            <div id="result_video" style="margin-top: 8px;position: relative;width: 150px;">
+                                {if condition="$data.video neq ''"}
+                                <video class="video" autoplay="" loop="" muted="" width="120" height="70"><source src="__STATIC__/uploads_video/lunbo/{$data.video}" type="video/mp4"></video>
+                                <button type="button" onclick="delvideo()" style="position: absolute;top: 0px;right: 0px;">
+                                    <i class="layui-icon">&#xe640;</i>
+                                </button>
+                                {/if}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="layui-form-item">
+                        <label for="L_pass" class="layui-form-label">
+                            视频上传
+                        </label>
+                        <div class="layui-input-inline">
+                            <input type="hidden" name="video" id="editvideo" value="{$data.video}">
+                            <input id="file" name="file" type="file" multiple="true" onchange="picture(this);" style="border: none;box-shadow: none;padding: 0;height: auto;margin-top: 8px;">
+                            <div class="article_span" style="">
+                                <span style="position: absolute;"></span>
+                            </div>
+                            <div style="margin-top: 8px;">
+                                <div id="result"></div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                              <input type="radio" name="status" title="启用" value="1" {$data.status==1?'checked':'';}>
+                              <input type="radio" name="status" title="禁用" value="0" {$data.status==1?'':'checked';}>
+
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label for="L_repass" class="layui-form-label"></label>
+                        <button class="layui-btn" lay-filter="add" id="sublit" lay-submit="">确认</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- <script src="__STATIC__/admin/js/jquery-2.1.1.min.js" charset="utf-8"></script> -->
+        <!-- <script>
+            $(function(){
+                $('.layui-layer-setwin .layui-layer-close1').click(function(){
+                    alert("111");
+                    console.log("123456");
+                });
+                $('.layui-layer-move').click(function(){
+                    alert("1111");
+                })
+            })
+        </script>  -->  
+        <script>
+            //图片上传
+            layui.use('upload', function(){
+              var upload = layui.upload;
+              //创建一个上传组件
+             upload.render({
+                elem: '#test1'
+                ,url: '{:url('ajax_upload')}'
+                ,done: function(data){ //上传后的回调
+                    if (data['file']!=false && data['file'] != "") {
+                        var result_img = '';
+                        var editimg = '';
+                        result_img += '<img src="' + '__STATIC__/uploads/lunbo/' + data['site'] + '" width="150" height="110">' + '<button type="button" onclick="delimg()" style="position: absolute;top: 0px;right: 0px;"><i class="layui-icon">&#xe640;</i></button>';
+                        editimg += data['site'];
+                        $('#result_img').html(result_img);
+                        $('#editimg').val(editimg);
+                        $('.article_span_img span').html(data['site']);
+                    }else {
+                        layer.alert(data.site);
+                        // layer.msg(data.site);
+                    }
+                }
+                ,accept: 'images' //允许上传的文件类型
+                // ,size: 300 //最大允许上传的文件大小
+                })
+            });
+
+            //视频上传
+            layui.use('upload', function(){
+              var upload = layui.upload;
+              //创建一个上传组件
+             upload.render({
+                elem: '#video'
+                ,url: '{:url('ajax_upload_video')}'
+                ,done: function(data){ //上传后的回调
+                    if (data['file']!=false && data['file'] != "") {
+                        var result_video = '';
+                        var editvideo = '';
+                        // result_video += '<img src="' + '__STATIC__/uploads_video/lunbo/' + data['site'] + '" width="150" height="110">' + '<button type="button" onclick="delimg()" style="position: absolute;top: 0px;right: 0px;"><i class="layui-icon">&#xe640;</i></button>';
+                        // editvideo += data['site'];
+
+                        result_video += '<video class="video" autoplay="" loop="" muted="" width="120" height="70"><source src="' + '__STATIC__/uploads_video/lunbo/' + data['site'] + '" type="video/mp4"></video>' + '<button type="button" onclick="delvideo()" style="position: absolute;top: 0px;right: 0px;"><i class="layui-icon">&#xe640;</i></button>';
+                        editvideo += data['site'];
+                        $('#result_video').html(result_video);
+                        $('#editvideo').val(editvideo);
+                        $('.article_span_video span').html(data['site']);
+                    }else {
+                        layer.alert(data.site);
+                        // layer.msg(data.site);
+                    }
+                }
+                ,accept: 'video' //允许上传的文件类型
+                // ,size: 300 //最大允许上传的文件大小
+                })
+            });
+
+            function delimg() {
+                // alert("111");
+                // $('#result_img').html("");
+                // $('#editimg').val("");
+                // $('.article_span_img span').html("");
+                img = $('#editimg').val();
+                // alert(img);
+                $.post("{:url('ajax_upload_del')}",{img:img},function(data){
+                    if (data==2) {
+                        // $('#result').find("img").remove();
+                        $('#result_img').html("");
+                        $('#editimg').val("");
+                        $('.article_span_img span').html("");
+                        layer.msg('图片删除成功！',{icon:1,time:1000});
+                    }else {
+                        // layer.msg('图片删除失败！',{icon:6,time:1000});
+                        layer.msg('图片删除失败！',{icon:6,time:1000});
+                    }
+                })
+            }
+
+            function delvideo() {
+                // alert("111");
+                // $('#result_img').html("");
+                // $('#editimg').val("");
+                // $('.article_span_img span').html("");
+                video = $('#editvideo').val();
+                // alert(img);
+                $.post("{:url('ajax_upload_video_del')}",{video:video},function(data){
+                    if (data==2) {
+                        // $('#result').find("img").remove();
+                        $('#result_video').html("");
+                        $('#editvideo').val("");
+                        $('.article_span_video span').html("");
+                        layer.msg('视频删除成功！',{icon:1,time:1000});
+                    }else {
+                        // layer.msg('图片删除失败！',{icon:6,time:1000});
+                        layer.msg('视频删除失败！',{icon:6,time:1000});
+                    }
+                })
+            }
+
+            layui.use(['form', 'layer'],
+                function() {
+                    $ = layui.jquery;
+                    var form = layui.form,
+                        layer = layui.layer;
+
+                    //监听提交
+                    form.on('submit(add)',
+                        function(data) {
+                            // console.log(data);
+                            str = $('#updateForm').serialize();
+                            $.post('{:url('update')}', {str: str}, function(data) {
+                                if (!data.code==1) {
+                                    layer.alert("修改成功", {
+                                        icon: 6
+                                    },
+                                    function() {
+                                        // 获得frame索引
+                                        var index = parent.layer.getFrameIndex(window.name);
+                                        //关闭当前frame
+                                        parent.layer.close(index);
+                                        parent.location.reload();
+                                    });
+                                }else {
+                                    layer.alert(data.error);
+                                }
+                            });
+                            return false;
+                        });
+                });
+        </script>
+    </body>
+
+</html>
